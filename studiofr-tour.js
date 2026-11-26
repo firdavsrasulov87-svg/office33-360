@@ -149,7 +149,7 @@
       var r = s.mapRect;
       svg += '<g class="sfr-m-room" data-id="' + s.id + '" tabindex="0" role="button" aria-label="' + s.name + '">' +
         '<rect x="' + r[0] + '" y="' + r[1] + '" width="' + r[2] + '" height="' + r[3] + '"/>' +
-        '<text x="' + (r[0] + r[2] / 2) + '" y="' + (r[1] + r[3] / 2) + '">' + s.name + '</text></g>';
+        '<text x="' + (r[0] + r[2] / 2) + '" y="' + (r[1] + r[3] / 2) + '">' + (s.mapLabel || s.name) + '</text></g>';
     });
     (map.doors || []).forEach(function (d) { svg += '<line class="sfr-m-door" x1="' + d[0] + '" y1="' + d[1] + '" x2="' + d[2] + '" y2="' + d[3] + '"/>'; });
     svg += '<g class="sfr-m-cam"><path d="M0 0 L90 -63 A110 110 0 0 1 90 63 Z"/><circle r="16"/></g></svg>';

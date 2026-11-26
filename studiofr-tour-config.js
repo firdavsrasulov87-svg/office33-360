@@ -11,16 +11,16 @@ window.STUDIOFR_TOUR_CONFIG = function (src) {
     start: 'entrance',
     transitionMs: 1100,
     scenes: [
-      { id: 'entrance', name: 'Вход и второй свет', map: [-1070, -70], mapRect: [-1250.8, -312.5, 309.8, 546],
+      { id: 'entrance', mapLabel: 'Вход', name: 'Вход и второй свет', map: [-1070, -70], mapRect: [-1250.8, -312.5, 309.8, 546],
         initial: { yaw: 0, pitch: 2, fov: 90 }, src: src('entrance'),
         links: [ { to: 'hall', yaw: 6.7, pitch: 14.2, arrive: 6.7, label: 'Зал' } ] },
-      { id: 'hall', name: 'Зал: ожидание и консультации', map: [-600, -15], mapRect: [-941, -312.5, 745.5, 546],
+      { id: 'hall', mapLabel: 'Зал', name: 'Зал: ожидание и консультации', map: [-600, -15], mapRect: [-941, -312.5, 745.5, 546],
         initial: { yaw: 0, pitch: 2, fov: 90 }, src: src('hall'),
         links: [
           { to: 'entrance', yaw: -173.3, pitch: 14.2, arrive: -173.3, label: 'Вход' },
           { to: 'podium', yaw: -14.3, pitch: 7.0, arrive: -14.3, label: 'Подиум' }
         ] },
-      { id: 'podium', name: 'Подиум', map: [-150, -130], mapRect: [-195.5, -312.5, 128.7, 546],
+      { id: 'podium', mapLabel: 'Подиум', name: 'Подиум', map: [-150, -130], mapRect: [-195.5, -312.5, 128.7, 546],
         initial: { yaw: 180, pitch: 4, fov: 90 }, src: src('podium'),
         links: [ { to: 'hall', yaw: 165.7, pitch: 21.5, arrive: 165.7, label: 'Зал' } ] }
     ],
