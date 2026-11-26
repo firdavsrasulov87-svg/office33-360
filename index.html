@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Офис продаж группа 33 · 360° тур</title>
+<meta name="description" content="Интерактивная 360° панорама офиса продаж ЖК «группа 33». Studio FR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="studiofr-tour.css">
+<style>
+  html,body{margin:0;height:100%;background:#0A0A0A;overflow:hidden}
+  #tour{position:fixed;inset:0}
+  .sfr-nowebgl{position:fixed;inset:0;display:grid;place-items:center;color:#F4F0E8;font:400 16px Rubik,Arial,sans-serif;text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<div id="tour" aria-label="360° тур по офису продаж"></div>
+<script src="marzipano.js"></script>
+<script src="studiofr-tour.js"></script>
+<script src="studiofr-tour-config.js"></script>
+<script>
+(function () {
+  var cfg = STUDIOFR_TOUR_CONFIG(function (id) {
+    return { equirect: [2048, 4096, 8192].map(function (w) { return { width: w, url: id + '_' + w + '.jpg' }; }) };
+  });
+  cfg.maxResolution = 4096;
+  cfg.scenes.forEach(function (s) { s.equirect = s.src.equirect; });
+  try {
+    window.TOUR = StudioFRTour.mount(document.getElementById('tour'), cfg);
+  } catch (e) {
+    document.body.innerHTML = '<div class="sfr-nowebgl">Для просмотра 360° тура нужен браузер с поддержкой WebGL.</div>';
+  }
+})();
+</script>
+</body>
+</html>
